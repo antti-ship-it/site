@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Website</title>
+  <title>Minun verkkosivuni</title>
   <meta name="description" content="A simple starter website" />
   <style>
     /* ---- Reset ---- */
@@ -26,15 +26,28 @@
       padding: 1.5rem;
     }
 
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
     nav a {
       color: white;
-      margin-right: 1rem;
       text-decoration: none;
       font-weight: 500;
+      cursor: pointer;
     }
 
     nav a:hover {
       text-decoration: underline;
+    }
+
+    nav select {
+      margin-left: auto;
+      padding: 0.3rem;
+      border-radius: 4px;
     }
 
     main {
@@ -44,7 +57,12 @@
     }
 
     section {
+      display: none;
       margin-bottom: 3rem;
+    }
+
+    section.active {
+      display: block;
     }
 
     h1, h2 {
@@ -66,6 +84,7 @@
       border-radius: 6px;
       text-decoration: none;
       margin-top: 1rem;
+      cursor: pointer;
     }
 
     .button:hover {
@@ -76,37 +95,62 @@
 <body>
 
   <header>
-    <h1>My Website</h1>
+    <h1>Minun verkkosivuni</h1>
     <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <a onclick="showSection('home')">Koti</a>
+      <a onclick="showSection('about')">Tietoa</a>
+      <a onclick="showSection('contact')">Yhteys</a>
+      <select id="languageSwitcher" onchange="switchLanguage(this.value)">
+        <option value="fi" selected>Suomi</option>
+        <option value="en">English</option>
+      </select>
     </nav>
   </header>
 
   <main>
-    <section id="home">
-      <h2>Welcome</h2>
+    <section id="home" data-fi-title="Tervetuloa" data-en-title="Welcome" data-fi-text="Tämä on yksinkertainen HTML- ja CSS-aloitussivusto." data-en-text="This is a simple HTML and CSS starter website.">
+      <h2>Tervetuloa</h2>
       <p>
-        This is a simple HTML + CSS starter website. You can build on this structure
-        to create a personal site, portfolio, blog, or landing page.
+        Tämä on yksinkertainen HTML + CSS -aloitussivusto. Voit käyttää tätä pohjana
+        henkilökohtaiselle sivulle, portfoliolle tai projektillesi.
       </p>
-      <a href="#about" class="button">Learn more</a>
+      <a class="button" onclick="showSection('about')">Lue lisää</a>
     </section>
 
-    <section id="about">
-      <h2>About</h2>
+    <section id="about" data-fi-title="Tietoa" data-en-title="About" data-fi-text="Kirjoita tähän tietoa itsestäsi tai projektistasi." data-en-text="Write something about yourself or your project here.">
+      <h2>Tietoa</h2>
       <p>
-        Write something about yourself, your project, or your idea here.
-        Keep it simple and clear.
+        Kirjoita tähän tietoa itsestäsi, projektistasi tai ideastasi.
       </p>
     </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: you@example.com</p>
+    <section id="contact" data-fi-title="Yhteys" data-en-title="Contact" data-fi-text="Sähköposti: sinä@example.com" data-en-text="Email: you@example.com">
+      <h2>Yhteys</h2>
+      <p>Sähköposti: sinä@example.com</p>
     </section>
   </main>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+    }
+
+    function switchLanguage(lang) {
+      document.documentElement.lang = lang;
+      document.querySelectorAll('section').forEach(section => {
+        const h2 = section.querySelector('h2');
+        const p = section.querySelector('p');
+        h2.textContent = section.dataset[lang + 'Title'];
+        p.textContent = section.dataset[lang + 'Text'];
+      });
+    }
+
+    // Näytä etusivu oletuksena
+    showSection('home');
+  </script>
 
   <footer>
     <p>© 2026 My Website</p>
