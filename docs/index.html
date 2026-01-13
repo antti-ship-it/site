@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Minun verkkosivuni</title>
+  <title>Antti Heikkilä</title>
   <meta name="description" content="A simple starter website" />
   <style>
     /* ---- Reset ---- */
@@ -95,11 +95,13 @@
 <body>
 
   <header>
-    <h1>Minun verkkosivuni</h1>
+    <h1>Antti Heikkilä</h1>
     <nav>
-      <a onclick="showSection('home')">Koti</a>
-      <a onclick="showSection('about')">Tietoa</a>
-      <a onclick="showSection('contact')">Yhteys</a>
+      <a onclick="showSection('home')">Tietoja minusta</a>
+      <a onclick="showSection('about')">Partio toiminta</a>
+      <a onclick="showSection('employer')">Työnantajalle</a>
+      <a onclick="showSection('work')">Työkokemus</a>
+      <a onclick="showSection('contact')">Yhteystiedot</a>
       <select id="languageSwitcher" onchange="switchLanguage(this.value)">
         <option value="fi" selected>Suomi</option>
         <option value="en">English</option>
@@ -108,25 +110,118 @@
   </header>
 
   <main>
-    <section id="home" data-fi-title="Tervetuloa" data-en-title="Welcome" data-fi-text="Tämä on yksinkertainen HTML- ja CSS-aloitussivusto." data-en-text="This is a simple HTML and CSS starter website.">
-      <h2>Tervetuloa</h2>
+    <section id="home" data-fi-title="Tietoja minusta" data-en-title="About Me" data-fi-text="Avoin, vastuullinen ja yhteistyökykyinen tekijä, jolla on vahva kokemus ryhmien ohjaamisesta ja käytännön tekemisestä." data-en-text="An open, responsible and collaborative person with strong experience in group leadership and hands-on work.">
+      <h2>Tietoja minusta</h2>
+
+      <h3>Millainen työkaveri olen</h3>
       <p>
-        Tämä on yksinkertainen HTML + CSS -aloitussivusto. Voit käyttää tätä pohjana
-        henkilökohtaiselle sivulle, portfoliolle tai projektillesi.
+        Työkaverina pyrin aina huomioimaan ihmisten erilaisuuden ja sen, että sama asia täytyy usein
+        kertoa eri tavoin, jotta kaikki ymmärtävät sen mahdollisimman hyvin. Tämä ajattelutapa on
+        kehittynyt erityisesti toimiessani ryhmänohjaajana partiossa.
       </p>
-      <a class="button" onclick="showSection('about')">Lue lisää</a>
+      <p>
+        Minulle on tärkeää, että työyhteisössä jokainen tuntee olonsa tervetulleeksi ja arvostetuksi.
+        Uskon vahvasti siihen, että vastuu kannattaa jakaa ihmisten vahvuuksien mukaan. Kukaan ei osaa
+        kaikkea, mutta kaikkien panos on tärkeä. Autan mielelläni muita ja pidän syrjimättömyyttä
+        itsestäänselvyytenä.
+      </p>
+
+      <h3>Osaaminen ja tekemisen tapa</h3>
+      <p>
+        Minulla on monipuolinen ja käytännönläheinen osaaminen. Nautin käsillä tekemisestä,
+        ongelmanratkaisusta ja uuden oppimisesta. Olen tottunut työskentelemään erilaisten työkalujen
+        kanssa sekä toteuttamaan projekteja alusta loppuun, niin itsenäisesti kuin osana ryhmää.
+      </p>
+      <p>
+        Osaamiseni näkyy konkreettisina projekteina, kuten itse rakennetussa stereovahvistimessa ja
+        kaiuttimissa, kopiossa maailman vanhimmasta tunnetusta lautapelistä sekä lukiossa vapaaehtoisena
+        suoritetussa robotiikkapajassa, jossa suunnittelemme, rakennamme ja ohjelmoimme oman robotin.
+      </p>
+      <p>
+        Minulla on kokemusta myös teknisestä ongelmanratkaisusta, Python-ohjelmoinnista sekä
+        taulukkolaskennasta (Excel, LibreOffice). Suhtaudun uusiin haasteisiin avoimin mielin ja näen ne
+        mahdollisuuksina oppia ja kehittää osaamistani.
+      </p>
+
+      <div>
+        <a class="button" onclick="showSection('work')">Työkokemus</a>
+        <a class="button" onclick="showSection('about')">Partiotoiminta</a>
+      </div>
+    </section>
+      
+
+      
+
+    <section id="work" data-fi-title="Työkokemus" data-en-title="Work Experience" data-fi-text="Aikaisempi työkokemus ja vastuut." data-en-text="Previous work experience and responsibilities.">
+      <h2>Työkokemus</h2>
+      <p><strong>Kirjastoapulainen</strong>, Tapiolan kirjasto, Espoo (kesä 2023)</p>
+      <p>
+        Työtehtäviini kuuluivat kirjojen hyllyttäminen, asiakaspalvelu sekä asiakkaiden auttaminen
+        kirjaston tietokoneiden käytössä. Olin osa monipuolista työyhteisöä ja toimin hyvin
+        itseohjautuvasti ja oma-aloitteisesti. Tapiolan kirjasto toimii myös Helmet-kirjastojen
+        logistiikkakeskuksena, joten työssä korostuivat järjestelmällisyys ja yhteistyö.
+      </p>
     </section>
 
-    <section id="about" data-fi-title="Tietoa" data-en-title="About" data-fi-text="Kirjoita tähän tietoa itsestäsi tai projektistasi." data-en-text="Write something about yourself or your project here.">
-      <h2>Tietoa</h2>
+    <section id="about" data-fi-title="Partio toiminta" data-en-title="Scouting" data-fi-text="Olen ollut partiossa alakoulusta lähtien ja toimin nykyään ryhmänohjaajana." data-en-text="I have been involved in scouting since elementary school and currently work as a group leader.">
+      <h2>Partio toiminta</h2>
       <p>
-        Kirjoita tähän tietoa itsestäsi, projektistasi tai ideastasi.
+        Olen ollut partiossa mukana alakoulusta lähtien ja toimin nykyään ryhmänohjaajana.
+        Osallistun aktiivisesti lippukunnan toiminnan organisointiin ja tapahtumien järjestämiseen.
+      </p>
+      <p>
+        Viimeisimpiä järjestämiäni tapahtumia ovat lasten viikonloppuretki sekä kesällä toteutettu
+        vaellus Lappiin reitillä Hetta–Pallas.
       </p>
     </section>
 
-    <section id="contact" data-fi-title="Yhteys" data-en-title="Contact" data-fi-text="Sähköposti: sinä@example.com" data-en-text="Email: you@example.com">
-      <h2>Yhteys</h2>
-      <p>Sähköposti: sinä@example.com</p>
+    <section id="employer" data-fi-title="Työnantajalle" data-en-title="For Employers" data-fi-text="Kohdennettua tietoa eri aloille." data-en-text="Targeted information for different industries.">
+      <h2>Työnantajalle</h2>
+      <p>
+        Tämä osio on tarkoitettu työnantajille. Alta löydät eri aloille kohdennetut kuvaukset
+        osaamisestani, työotteestani ja siitä, millaista lisäarvoa voin tuoda työyhteisöön.
+      </p>
+
+      <h3>Asiakaspalvelu ja kaupan ala</h3>
+      <p>
+        Olen tottunut työskentelemään erilaisten ihmisten kanssa ja huomioimaan asiakkaiden
+        yksilölliset tarpeet. Tapiolan kirjastossa asiakaspalvelu oli keskeinen osa työtäni,
+        ja opin toimimaan rauhallisesti myös tilanteissa, joissa asiakas tarvitsee erityistä
+        ohjausta tai tukea. Olen oma-aloitteinen, kohtelias ja pidän huolta siitä, että asiakas
+        kokee tulleensa kuulluksi.
+      </p>
+
+      <h3>Varasto-, logistiikka- ja tuotantotyö</h3>
+      <p>
+        Minulla on kokemusta fyysisestä työstä, järjestelmällisestä tekemisestä ja vastuun
+        kantamisesta. Kirjastotyössä logistiikka ja kirjojen lajittelu vaativat tarkkuutta
+        ja tehokasta työskentelyä. Partiotoiminnassa olen tottunut toimimaan vaihtelevissa
+        olosuhteissa, kantamaan vastuuta ja huolehtimaan siitä, että kokonaisuus toimii.
+      </p>
+
+      <h3>Tekninen ja käytännön työ</h3>
+      <p>
+        Nautin käsillä tekemisestä ja ongelmien ratkaisemisesta. Minulla on kokemusta
+        työkalujen käytöstä, MIG-hitsauksesta, rakentamisesta ja korjaamisesta. Opin uudet
+        työtehtävät nopeasti ja suhtaudun uusiin haasteisiin avoimesti. Käytännön työskentely
+        on minulle luontevaa ja motivoivaa.
+      </p>
+
+      <h3>Ohjaus, nuorisotyö ja tapahtumat</h3>
+      <p>
+        Partioryhmänjohtajana minulla on laaja kokemus lasten ja nuorten ohjaamisesta,
+        tapahtumien suunnittelusta sekä vastuun jakamisesta. Osaan huomioida eri-ikäiset
+        ja erilaiset ihmiset, antaa selkeitä ohjeita ja pitää ryhmän motivoituneena.
+        Turvallinen ja kannustava ilmapiiri on minulle ensiarvoisen tärkeää.
+      </p>
+    </section>
+
+    <section id="contact" data-fi-title="Yhteystiedot" data-en-title="Contact Information" data-fi-text="Puhelin, sähköposti ja osoite." data-en-text="Phone, email and address.">
+      <h2>Yhteystiedot</h2>
+      <p><strong>Nimi:</strong> Antti Henrik Heikkilä</p>
+      <p><strong>Puhelin:</strong> 040 060 1896</p>
+      <p><strong>Sähköposti:</strong> anttihh2007@outlook.com</p>
+      <p><strong>Osoite:</strong> Taavinharju 10 A1, 02180 Espoo</p>
     </section>
   </main>
 
@@ -153,7 +248,10 @@
   </script>
 
   <footer>
-    <p>© 2026 My Website</p>
+    <p>© 2026 Antti Heikkilä</p>
+    <p>
+      📞 040 060 1896 · ✉️ anttihh2007@outlook.com · Espoo
+    </p>
   </footer>
 
 </body>
