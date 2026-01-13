@@ -20,6 +20,10 @@
       background: #f7f7f7;
     }
 
+    p {
+      margin-bottom: 1.4rem;
+    }
+
     header {
       background: #111;
       color: white;
@@ -66,7 +70,7 @@
     }
 
     h1, h2 {
-      margin-bottom: 1rem;
+      margin: 2.5rem 0;
     }
 
     footer {
@@ -97,11 +101,11 @@
   <header>
     <h1>Antti Heikkilä</h1>
     <nav>
-      <a onclick="showSection('home')">Tietoja minusta</a>
-      <a onclick="showSection('about')">Partio toiminta</a>
-      <a onclick="showSection('employer')">Työnantajalle</a>
-      <a onclick="showSection('work')">Työkokemus</a>
-      <a onclick="showSection('contact')">Yhteystiedot</a>
+      <a data-fi="Tietoja minusta" data-en="About me" onclick="showSection('home')">Tietoja minusta</a>
+      <a data-fi="Partiotoiminta" data-en="Scouting" onclick="showSection('about')">Partiotoiminta</a>
+      <a data-fi="Työnantajalle" data-en="For employers" onclick="showSection('employer')">Työnantajalle</a>
+      <a data-fi="Työkokemus" data-en="Work experience" onclick="showSection('work')">Työkokemus</a>
+      <a data-fi="Yhteystiedot" data-en="Contact" onclick="showSection('contact')">Yhteystiedot</a>
       <select id="languageSwitcher" onchange="switchLanguage(this.value)">
         <option value="fi" selected>Suomi</option>
         <option value="en">English</option>
@@ -111,7 +115,7 @@
 
   <main>
     <section id="home" data-fi-title="Tietoja minusta" data-en-title="About Me" data-fi-text="Avoin, vastuullinen ja yhteistyökykyinen tekijä, jolla on vahva kokemus ryhmien ohjaamisesta ja käytännön tekemisestä." data-en-text="An open, responsible and collaborative person with strong experience in group leadership and hands-on work.">
-      <h2>Tietoja minusta</h2>
+      <h2 data-fi="Tietoja minusta" data-en=""></h2>
 
       <h3>Millainen työkaveri olen</h3>
       <p>
@@ -127,20 +131,31 @@
       </p>
 
       <h3>Osaaminen ja tekemisen tapa</h3>
+      
       <p>
         Minulla on monipuolinen ja käytännönläheinen osaaminen. Nautin käsillä tekemisestä,
         ongelmanratkaisusta ja uuden oppimisesta. Olen tottunut työskentelemään erilaisten työkalujen
         kanssa sekä toteuttamaan projekteja alusta loppuun, niin itsenäisesti kuin osana ryhmää.
       </p>
+      
       <p>
         Osaamiseni näkyy konkreettisina projekteina, kuten itse rakennetussa stereovahvistimessa ja
         kaiuttimissa, kopiossa maailman vanhimmasta tunnetusta lautapelistä sekä lukiossa vapaaehtoisena
         suoritetussa robotiikkapajassa, jossa suunnittelemme, rakennamme ja ohjelmoimme oman robotin.
       </p>
+      
       <p>
         Minulla on kokemusta myös teknisestä ongelmanratkaisusta, Python-ohjelmoinnista sekä
         taulukkolaskennasta (Excel, LibreOffice). Suhtaudun uusiin haasteisiin avoimin mielin ja näen ne
         mahdollisuuksina oppia ja kehittää osaamistani.
+      </p>
+
+      <h3>Kielitaito</h3>
+      
+      <p>
+        Äidinkieleni on suomi. Englannin kielen taitoni on hyvä ja käytän sitä sujuvasti niin
+        kirjallisesti kuin suullisesti. Saksaa osaan tyydyttävästi ja pystyn ymmärtämään sekä
+        kommunikoimaan perusasioissa.
       </p>
 
       <div>
@@ -153,7 +168,7 @@
       
 
     <section id="work" data-fi-title="Työkokemus" data-en-title="Work Experience" data-fi-text="Aikaisempi työkokemus ja vastuut." data-en-text="Previous work experience and responsibilities.">
-      <h2>Työkokemus</h2>
+      <h2 data-fi="Työkokemus" data-en=""></h2>
       <p><strong>Kirjastoapulainen</strong>, Tapiolan kirjasto, Espoo (kesä 2023)</p>
       <p>
         Työtehtäviini kuuluivat kirjojen hyllyttäminen, asiakaspalvelu sekä asiakkaiden auttaminen
@@ -164,7 +179,7 @@
     </section>
 
     <section id="about" data-fi-title="Partio toiminta" data-en-title="Scouting" data-fi-text="Olen ollut partiossa alakoulusta lähtien ja toimin nykyään ryhmänohjaajana." data-en-text="I have been involved in scouting since elementary school and currently work as a group leader.">
-      <h2>Partio toiminta</h2>
+      <h2 data-fi="Partio toiminta" data-en=""></h2>
       <p>
         Olen ollut partiossa mukana alakoulusta lähtien ja toimin nykyään ryhmänohjaajana.
         Osallistun aktiivisesti lippukunnan toiminnan organisointiin ja tapahtumien järjestämiseen.
@@ -176,7 +191,7 @@
     </section>
 
     <section id="employer" data-fi-title="Työnantajalle" data-en-title="For Employers" data-fi-text="Kohdennettua tietoa eri aloille." data-en-text="Targeted information for different industries.">
-      <h2>Työnantajalle</h2>
+      <h2 data-fi="Työnantajalle" data-en=""></h2>
       <p>
         Tämä osio on tarkoitettu työnantajille. Alta löydät eri aloille kohdennetut kuvaukset
         osaamisestani, työotteestani ja siitä, millaista lisäarvoa voin tuoda työyhteisöön.
@@ -217,7 +232,7 @@
     </section>
 
     <section id="contact" data-fi-title="Yhteystiedot" data-en-title="Contact Information" data-fi-text="Puhelin, sähköposti ja osoite." data-en-text="Phone, email and address.">
-      <h2>Yhteystiedot</h2>
+      <h2 data-fi="Yhteystiedot" data-en=""></h2>
       <p><strong>Nimi:</strong> Antti Henrik Heikkilä</p>
       <p><strong>Puhelin:</strong> 040 060 1896</p>
       <p><strong>Sähköposti:</strong> anttihh2007@outlook.com</p>
@@ -235,12 +250,17 @@
 
     function switchLanguage(lang) {
       document.documentElement.lang = lang;
-      document.querySelectorAll('section').forEach(section => {
-        const h2 = section.querySelector('h2');
-        const p = section.querySelector('p');
-        h2.textContent = section.dataset[lang + 'Title'];
-        p.textContent = section.dataset[lang + 'Text'];
+
+      // käännä navigaatio
+      document.querySelectorAll('nav a').forEach(link => {
+        link.textContent = link.dataset[lang];
       });
+
+      // käännä otsikot ja kappaleet osioissa
+      document.querySelectorAll('[data-fi][data-en]').forEach(el => {
+        el.textContent = el.dataset[lang];
+      });
+    });
     }
 
     // Näytä etusivu oletuksena
