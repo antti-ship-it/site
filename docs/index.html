@@ -6,273 +6,294 @@
   <title>Antti Heikkilä</title>
   <meta name="description" content="A simple starter website" />
   <style>
-    /* ---- Reset ---- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      line-height: 1.6;
+      line-height: 1.7;
       color: #222;
-      background: #f7f7f7;
+      background: #f4f1ea; /* vaalea hiekkatausta */
     }
-
-    p {
-      margin-bottom: 1.4rem;
-    }
+    p { margin-bottom: 1.4rem; }
+    ul { margin: 0 0 1.4rem 1.25rem; }
+    li { margin-bottom: 0.4rem; }
 
     header {
-      background: #111;
-      color: white;
-      padding: 1.5rem;
+      background: #e8e1cf; /* hiekan sävy */
+      color: #1f3d2b; /* tumma vihreä */
+      padding: 2rem 1.5rem 1.5rem;
+      text-align: center;
+      border-bottom: 4px solid #2f5d3a; /* vihreä korostus */
     }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 0.5rem;
-    }
-
+    nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-top: 0.5rem; }
     nav a {
-      color: white;
+      color: #1f3d2b; /* vihreä teksti */
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
       cursor: pointer;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    nav select {
-      margin-left: auto;
-      padding: 0.3rem;
+      padding: 0.25rem 0.5rem;
       border-radius: 4px;
     }
-
-    main {
-      max-width: 900px;
-      margin: 3rem auto;
-      padding: 0 1rem;
+    nav a:hover {
+      background: rgba(47, 93, 58, 0.1);
+      text-decoration: none;
     }
 
+    main { max-width: 900px; margin: 3rem auto; padding: 0 1rem; }
     section {
       display: none;
       margin-bottom: 3rem;
+      background: #ffffff;
+      padding: 2rem 2rem 2.5rem;
+      border-left: 6px solid #2f5d3a; /* vihreä korostusreuna */
+      border-radius: 6px;
     }
-
-    section.active {
-      display: block;
-    }
-
+    section.active { display: block; }
     h1, h2 {
-      margin: 2.5rem 0;
+      margin: 2.5rem 0 1.5rem;
+      color: #1f3d2b; /* vihreä otsikkoväri */
     }
+    h3 { margin: 1.6rem 0 0.8rem; }
 
     footer {
-      background: #111;
-      color: white;
+      background: #e8e1cf; /* sama hiekan sävy kuin header */
+      color: #1f3d2b;
       text-align: center;
       padding: 1.5rem;
+      border-top: 4px solid #2f5d3a; /* vihreä korostus */
     }
 
-    .button {
-      display: inline-block;
-      padding: 0.75rem 1.25rem;
-      background: #0066ff;
-      color: white;
-      border-radius: 6px;
-      text-decoration: none;
-      margin-top: 1rem;
-      cursor: pointer;
-    }
+    .button { display: inline-block; padding: 0.75rem 1.25rem; background: #0066ff; color: white; border-radius: 6px; text-decoration: none; margin-top: 1rem; cursor: pointer; }
+    .button:hover { background: #004bcc; }
 
-    .button:hover {
-      background: #004bcc;
-    }
+    @media (max-width: 600px) { nav { flex-direction: column; gap: 0.5rem; } }
   </style>
 </head>
 <body>
-
   <header>
     <h1>Antti Heikkilä</h1>
     <nav>
-      <a data-fi="Tietoja minusta" data-en="About me" onclick="showSection('home')">Tietoja minusta</a>
-      <a data-fi="Partiotoiminta" data-en="Scouting" onclick="showSection('about')">Partiotoiminta</a>
-      <a data-fi="Työnantajalle" data-en="For employers" onclick="showSection('employer')">Työnantajalle</a>
-      <a data-fi="Työkokemus" data-en="Work experience" onclick="showSection('work')">Työkokemus</a>
-      <a data-fi="Yhteystiedot" data-en="Contact" onclick="showSection('contact')">Yhteystiedot</a>
-      <select id="languageSwitcher" onchange="switchLanguage(this.value)">
-        <option value="fi" selected>Suomi</option>
-        <option value="en">English</option>
-      </select>
+      <a onclick="showSection('home')">Tietoja minusta</a>
+      <a onclick="showSection('about')">Partiotoiminta</a>
+      <a onclick="showSection('employer')">Työnantajalle</a>
+      <a onclick="showSection('work')">Työkokemus</a>
+      <a onclick="showSection('contact')">Yhteystiedot</a>
     </nav>
   </header>
-
   <main>
-    <section id="home" data-fi-title="Tietoja minusta" data-en-title="About Me" data-fi-text="Avoin, vastuullinen ja yhteistyökykyinen tekijä, jolla on vahva kokemus ryhmien ohjaamisesta ja käytännön tekemisestä." data-en-text="An open, responsible and collaborative person with strong experience in group leadership and hands-on work.">
-      <h2 data-fi="Tietoja minusta" data-en=""></h2>
+    <section id="home">
+      <h2>Tietoja minusta</h2>
 
-      <h3>Millainen työkaveri olen</h3>
+      <ul>
+        <li>Ryhmänohjaajakokemusta partiossa – ihmisten motivointi ja vastuun jakaminen vahvuuksien mukaan</li>
+        <li>Partiolippukunnan hallituksen jäsen sekä tulevan lippukuntaretken johtaja (yli 50 osallistujaa)</li>
+        <li>Vahva ongelmanratkaisukyky ja luova ajattelutapa (matemaattispainotteinen tausta)</li>
+        <li>Laaja projektikokemus: elektroniikka, puutyö, robotiikka ja ohjelmointi</li>
+        <li>Kiinnostus historiaan ja filosofiaan – YO: historia E, filosofia L, stipendin saaja</li>
+        <li>Oma-aloitteinen, yhteistyökykyinen ja muita kannustava työskentelytapa</li>
+      </ul>
+      <h3>Millainen työkaveri olisin?</h3>
+      <p>Työkaverina pyrin aina huomioimaan ihmisten erilaisuuden ja sen, että sama asia täytyy usein kertoa eri tavoin, jotta kaikki ymmärtävät sen mahdollisimman hyvin. Olen huomannut erityisesti partiossa ryhmänohjaajana toimiessani, että eri ihmisiä – ja etenkin lapsia – täytyy motivoida eri tavoin, jotta jokainen pääsee parhaalla mahdollisella tavalla mukaan tekemiseen.</p>
+      <p>Minulle on tärkeää, että työyhteisössä jokainen tuntee olonsa tervetulleeksi ja arvostetuksi. Pyrin vaikuttamaan tähän omalla toiminnallani kohtaamalla jokaisen ihmisen yksilönä, kuuntelemalla ja huomioimalla erilaiset taustat ja vahvuudet. Uskon vahvasti siihen, että vastuu kannattaa jakaa ihmisten vahvuuksien mukaan: kukaan ei osaa kaikkea, mutta kaikkien panos on tärkeä. Autan mielelläni muita ja pyrin omalla esimerkilläni luomaan syrjimättömän ja kannustavan ilmapiirin.</p>
+      <h3>Miten ratkaisen ongelmia?</h3>
       <p>
-        Työkaverina pyrin aina huomioimaan ihmisten erilaisuuden ja sen, että sama asia täytyy usein
-        kertoa eri tavoin, jotta kaikki ymmärtävät sen mahdollisimman hyvin. Tämä ajattelutapa on
-        kehittynyt erityisesti toimiessani ryhmänohjaajana partiossa.
-      </p>
-      <p>
-        Minulle on tärkeää, että työyhteisössä jokainen tuntee olonsa tervetulleeksi ja arvostetuksi.
-        Uskon vahvasti siihen, että vastuu kannattaa jakaa ihmisten vahvuuksien mukaan. Kukaan ei osaa
-        kaikkea, mutta kaikkien panos on tärkeä. Autan mielelläni muita ja pidän syrjimättömyyttä
-        itsestäänselvyytenä.
-      </p>
-
-      <h3>Osaaminen ja tekemisen tapa</h3>
-      
-      <p>
-        Minulla on monipuolinen ja käytännönläheinen osaaminen. Nautin käsillä tekemisestä,
-        ongelmanratkaisusta ja uuden oppimisesta. Olen tottunut työskentelemään erilaisten työkalujen
-        kanssa sekä toteuttamaan projekteja alusta loppuun, niin itsenäisesti kuin osana ryhmää.
-      </p>
-      
-      <p>
-        Osaamiseni näkyy konkreettisina projekteina, kuten itse rakennetussa stereovahvistimessa ja
-        kaiuttimissa, kopiossa maailman vanhimmasta tunnetusta lautapelistä sekä lukiossa vapaaehtoisena
-        suoritetussa robotiikkapajassa, jossa suunnittelemme, rakennamme ja ohjelmoimme oman robotin.
+        Ongelmanratkaisutaitoni näkyvät erityisesti pitkäkestoisissa ja kokonaisvaltaisissa projekteissa. Olen rakentanut
+        itse stereovahvistimen ja kaiuttimet, joissa vastasin sekä puutyöstä (kotelot) että
+        sähkötyöstä, kuten piirilevyn kokoamisesta ja komponenttien asentamisesta. Projekti vaati
+        huolellista suunnittelua, testaamista ja ongelmien ratkaisemista käytännössä.
+      </p> erityisesti pitkäkestoisissa ja kokonaisvaltaisissa projekteissa. Olen rakentanut
+        itse stereovahvistimen ja kaiuttimet, joissa vastasin sekä puutyöstä (kotelot) että
+        sähkötyöstä, kuten piirilevyn kokoamisesta ja komponenttien asentamisesta. Projekti vaati
+        huolellista suunnittelua, testaamista ja ongelmien ratkaisemista käytännössä.
       </p>
       
       <p>
-        Minulla on kokemusta myös teknisestä ongelmanratkaisusta, Python-ohjelmoinnista sekä
-        taulukkolaskennasta (Excel, LibreOffice). Suhtaudun uusiin haasteisiin avoimin mielin ja näen ne
-        mahdollisuuksina oppia ja kehittää osaamistani.
+        Lukiossa olen osallistunut vapaaehtoiseen robotiikkapajaan, jossa keskiössä ovat luova
+        ongelmanratkaisukyky, yhteistyö ja toisten ohjaaminen. Ryhmässä on ollut myös heikosti suomea
+        puhuvia opiskelijoita, mikä on kehittänyt kykyäni kommunikoida selkeästi ja varmistaa, että
+        kaikki ymmärtävät yhteiset tavoitteet ja tehtävät.
+      </p>
+      <p>
+        Minulla on vahva tausta matemaattisessa ajattelussa. Olin yläkoulussa matemaattispainotteisella
+        luokalla, jossa painotettiin erityisesti ongelmanratkaisutaitoja ja luovaa ajattelua sen sijaan,
+        että opeteltaisiin pelkästään kaavamaisia ratkaisumalleja tai tehtävätyyppien tunnistamista.
+        Tämä on kehittänyt kykyäni lähestyä uusia ja monimutkaisia ongelmia ennakkoluulottomasti.
+      </p>
+      
+      <h3>Omat kiinnostuksen kohteet</h3>
+      <p>
+        Olen kiinnostunut ohjelmoinnista ja teknologian mahdollisuuksista. Osaan Python-ohjelmoinnin
+        perusteet ja olen käyttänyt ohjelmointia osana omia projekteja ja ongelmanratkaisua.
+      </p>
+      <p>
+        Olen tehnyt kopion maailman vanhimmasta tunnetusta lautapelistä, <em>The Royal Game of Ur</em>,
+        joka on esillä British Museumissa. Projekti kuvastaa kiinnostustani historiaan ja
+        kokonaisuuksien ymmärtämiseen.
+      </p>
+      <p>
+        Kirjoitin historiasta ylioppilaskokeissa arvosanan <strong>E</strong> ja sain stipendin
+        ahkerasta ja oma-aloitteisesta historian opiskelusta. Historialliset aiheet kiinnostavat minua
+        erityisesti silloin, kun ne yhdistyvät kulttuuriin, teknologiaan ja ihmisten toimintaan.
+        Lisäksi kirjoitin filosofiasta ylioppilaskokeissa arvosanan <strong>L</strong>, mikä vahvistaa
+        kiinnostustani ihmisten ajattelutapoihin, toimintaan ja siihen, mitä niistä seuraa sekä mitä
+        niistä on seurannut historiallisesti.
       </p>
 
       <h3>Kielitaito</h3>
-      
-      <p>
-        Äidinkieleni on suomi. Englannin kielen taitoni on hyvä ja käytän sitä sujuvasti niin
-        kirjallisesti kuin suullisesti. Saksaa osaan tyydyttävästi ja pystyn ymmärtämään sekä
-        kommunikoimaan perusasioissa.
-      </p>
-
+      <ul>
+        <li><strong>Suomi</strong> – äidinkieli</li>
+        <li><strong>Englanti</strong> – hyvä suullinen ja kirjallinen taito</li>
+        <li><strong>Saksa</strong> – tyydyttävä; opiskellut saksaa alakoulun 4. luokalta yläkoulun loppuun</li>
+      </ul>
       <div>
         <a class="button" onclick="showSection('work')">Työkokemus</a>
         <a class="button" onclick="showSection('about')">Partiotoiminta</a>
       </div>
     </section>
-      
+    <section id="about">
+      <h2>Partiotoiminta</h2>
 
-      
-
-    <section id="work" data-fi-title="Työkokemus" data-en-title="Work Experience" data-fi-text="Aikaisempi työkokemus ja vastuut." data-en-text="Previous work experience and responsibilities.">
-      <h2 data-fi="Työkokemus" data-en=""></h2>
-      <p><strong>Kirjastoapulainen</strong>, Tapiolan kirjasto, Espoo (kesä 2023)</p>
+      <h3>Luottamustehtävät ja vastuu</h3>
       <p>
-        Työtehtäviini kuuluivat kirjojen hyllyttäminen, asiakaspalvelu sekä asiakkaiden auttaminen
-        kirjaston tietokoneiden käytössä. Olin osa monipuolista työyhteisöä ja toimin hyvin
-        itseohjautuvasti ja oma-aloitteisesti. Tapiolan kirjasto toimii myös Helmet-kirjastojen
-        logistiikkakeskuksena, joten työssä korostuivat järjestelmällisyys ja yhteistyö.
+        Toimin partiolippukuntani hallituksen jäsenenä ja olen tulevan lippukuntaretken johtaja.
+        Retkelle on tulossa yli 50 osallistujaa, ja vastuullani on kokonaisuuden suunnittelu,
+        vastuiden jakaminen, turvallisuus sekä tapahtuman sujuva toteutus.
       </p>
-    </section>
+      <p>
+        Tehtävä vaatii pitkäjänteistä suunnittelua, kykyä ennakoida mahdollisia haasteita sekä
+        yhteistyötä eri-ikäisten ja eri rooleissa toimivien ihmisten kanssa.
+      </p>
+      <h2>Partiotoiminta</h2>
 
-    <section id="about" data-fi-title="Partio toiminta" data-en-title="Scouting" data-fi-text="Olen ollut partiossa alakoulusta lähtien ja toimin nykyään ryhmänohjaajana." data-en-text="I have been involved in scouting since elementary school and currently work as a group leader.">
-      <h2 data-fi="Partio toiminta" data-en=""></h2>
       <p>
         Olen ollut partiossa mukana alakoulusta lähtien ja toimin nykyään ryhmänohjaajana.
-        Osallistun aktiivisesti lippukunnan toiminnan organisointiin ja tapahtumien järjestämiseen.
+        Minulle partio on ennen kaikkea yhdessä tekemistä: selkeää yhteistyötä, vastuunkantoa ja sitä,
+        että jokainen tulee nähdyksi.
       </p>
+
+      <h3>Johtaminen ja ohjaus</h3>
       <p>
-        Viimeisimpiä järjestämiäni tapahtumia ovat lasten viikonloppuretki sekä kesällä toteutettu
-        vaellus Lappiin reitillä Hetta–Pallas.
+        Ryhmänjohtajana olen oppinut, että ohjeiden pitää olla selkeitä ja kannustavia.
+        Epäonnistumisten kohdalla paras tapa edetä on käydä asiat rauhassa läpi ja sopia, miten
+        seuraavalla kerralla onnistutaan paremmin.
+      </p>
+
+      <h3>Tapahtumien järjestäminen</h3>
+      <p>
+        Olen organisoinut lippukunnassa erilaisia tapahtumia ja jakanut vastuutehtäviä muiden kanssa.
+        Vastuuta jakaessa huomioin ihmisten vahvuudet, koska silloin tapahtumat sujuvat mutkattomammin.
+      </p>
+      <ul>
+        <li>Viikonloppuretki lapsille (suunnittelu, vastuut, käytännön toteutus)</li>
+        <li>Vaellus Lappiin reitillä Hetta–Pallas (suunnittelu, aikataulutus, varautuminen)</li>
+        <li>Ruokahuollon suunnittelu ja toteutus (retkiruoka, trangia)</li>
+      </ul>
+
+      <p>
+        Partiotoiminta on antanut minulle hyvät paineensietokyvyn ja vuorovaikutustaidot:
+        osaan kuunnella, tehdä päätöksiä ja pitää koko porukan liikkeessä niin, että tekeminen pysyy
+        mielekkäänä ja turvallisena.
       </p>
     </section>
+    <section id="employer">
+      <h2>Työnantajalle</h2>
 
-    <section id="employer" data-fi-title="Työnantajalle" data-en-title="For Employers" data-fi-text="Kohdennettua tietoa eri aloille." data-en-text="Targeted information for different industries.">
-      <h2 data-fi="Työnantajalle" data-en=""></h2>
+      <p><strong>
+        Partiokokemukseni kautta toimin lippukunnan hallituksen jäsenenä ja vastaan yli 50 osallistujan
+        lippukuntaretken johtamisesta. Tämä tarkoittaa kokonaisuuksien hallintaa, vastuun jakamista,
+        aikataulutusta ja kykyä toimia luotettavasti myös paineen alla.
+      </strong></p>
+      <h2>Työnantajalle</h2>
+
       <p>
-        Tämä osio on tarkoitettu työnantajille. Alta löydät eri aloille kohdennetut kuvaukset
-        osaamisestani, työotteestani ja siitä, millaista lisäarvoa voin tuoda työyhteisöön.
+        Alla kuvaan konkreettisesti, millaisissa tehtävissä ja toimintaympäristöissä osaamiseni on ollut hyödyksi.
       </p>
 
       <h3>Asiakaspalvelu ja kaupan ala</h3>
       <p>
-        Olen tottunut työskentelemään erilaisten ihmisten kanssa ja huomioimaan asiakkaiden
-        yksilölliset tarpeet. Tapiolan kirjastossa asiakaspalvelu oli keskeinen osa työtäni,
-        ja opin toimimaan rauhallisesti myös tilanteissa, joissa asiakas tarvitsee erityistä
-        ohjausta tai tukea. Olen oma-aloitteinen, kohtelias ja pidän huolta siitä, että asiakas
-        kokee tulleensa kuulluksi.
+        Olen tottunut kohtaamaan erilaisia ihmisiä ja mukauttamaan viestintää tilanteen mukaan.
+        Käytännössä tämä on tarkoittanut asiakkaiden neuvomista, rauhallista opastamista ja
+        ongelmatilanteiden selvittämistä niin, että asiakas kokee tulleensa kuulluksi ja ymmärretyksi.
+        Esimerkiksi kirjastotyössä autoin asiakkaita kirjojen löytämisessä sekä tietokoneiden ja
+        järjestelmien käytössä.
       </p>
 
       <h3>Varasto-, logistiikka- ja tuotantotyö</h3>
       <p>
-        Minulla on kokemusta fyysisestä työstä, järjestelmällisestä tekemisestä ja vastuun
-        kantamisesta. Kirjastotyössä logistiikka ja kirjojen lajittelu vaativat tarkkuutta
-        ja tehokasta työskentelyä. Partiotoiminnassa olen tottunut toimimaan vaihtelevissa
-        olosuhteissa, kantamaan vastuuta ja huolehtimaan siitä, että kokonaisuus toimii.
+        Teen työni järjestelmällisesti ja pidän huolta siitä, että kokonaisuus pysyy hallinnassa.
+        Käytännön osaamiseni näkyy esimerkiksi kirjojen lajittelussa ja hyllyttämisessä
+        Helmet-kirjastojen logistiikkaympäristössä, jossa korostuivat tarkkuus, toistuvat rutiinit
+        ja yhteistyö muiden kanssa.
       </p>
 
       <h3>Tekninen ja käytännön työ</h3>
       <p>
-        Nautin käsillä tekemisestä ja ongelmien ratkaisemisesta. Minulla on kokemusta
-        työkalujen käytöstä, MIG-hitsauksesta, rakentamisesta ja korjaamisesta. Opin uudet
-        työtehtävät nopeasti ja suhtaudun uusiin haasteisiin avoimesti. Käytännön työskentely
-        on minulle luontevaa ja motivoivaa.
+        Nautin käsillä tekemisestä ja ongelmien ratkaisemisesta. Käytännön esimerkkejä tästä ovat
+        itse rakennettu stereovahvistin ja kaiuttimet, joissa vastasin puutyöstä (kotelot),
+        elektroniikasta (piirilevyn kokoaminen, komponenttien asennus) sekä toiminnan testaamisesta
+        ja vianetsinnästä.
       </p>
 
       <h3>Ohjaus, nuorisotyö ja tapahtumat</h3>
       <p>
-        Partioryhmänjohtajana minulla on laaja kokemus lasten ja nuorten ohjaamisesta,
-        tapahtumien suunnittelusta sekä vastuun jakamisesta. Osaan huomioida eri-ikäiset
-        ja erilaiset ihmiset, antaa selkeitä ohjeita ja pitää ryhmän motivoituneena.
-        Turvallinen ja kannustava ilmapiiri on minulle ensiarvoisen tärkeää.
+        Partioryhmänjohtajana ja lippukuntaretken johtajana olen ohjannut lapsi- ja nuorisoryhmiä,
+        jakanut vastuutehtäviä ja huolehtinut turvallisuudesta. Käytännössä tämä on tarkoittanut
+        ohjelman suunnittelua, ohjeiden selkeyttämistä, ryhmän motivointia sekä toimimista
+        rauhallisesti myös yllättävissä tilanteissa.
+      </p>
+    <h3>Miksi minut kannattaa palkata?</h3>
+      <p>
+        Tuon mukanani työyhteisöön vastuullisen ja käytännönläheisen työotteen. Olen tottunut
+        ottamaan vastuuta, oppimaan uutta nopeasti ja toimimaan erilaisten ihmisten kanssa.
+        Minulle on tärkeää, että työ tehdään huolellisesti ja että kokonaisuus toimii, ei vain
+        yksittäinen tehtävä.
+      </p>
+      <p>
+        Yhdistän tekemisessäni analyyttisen ajattelun, käytännön taidot ja ihmisten huomioimisen.
+        Tämä näkyy kykynä ratkaista ongelmia, kantaa vastuuta ja edistää yhteistä tekemistä myös
+        tilanteissa, joissa valmiita ratkaisuja ei ole.
       </p>
     </section>
+    <section id="work">
+      <h2>Työkokemus</h2>
 
-    <section id="contact" data-fi-title="Yhteystiedot" data-en-title="Contact Information" data-fi-text="Puhelin, sähköposti ja osoite." data-en-text="Phone, email and address.">
-      <h2 data-fi="Yhteystiedot" data-en=""></h2>
-      <p><strong>Nimi:</strong> Antti Henrik Heikkilä</p>
-      <p><strong>Puhelin:</strong> 040 060 1896</p>
-      <p><strong>Sähköposti:</strong> anttihh2007@outlook.com</p>
-      <p><strong>Osoite:</strong> Taavinharju 10 A1, 02180 Espoo</p>
+      <h3>Kirjastoapulainen, Tapiolan kirjasto (Espoo) — kesä 2023 (1 kk)</h3>
+      <p>
+        Työtehtäviini kuuluivat kirjojen hyllyttäminen, asiakaspalvelu sekä asiakkaiden auttaminen
+        kirjaston tietokoneiden käytössä. Olin osa monipuolista työyhteisöä ja toimin hyvin
+        itseohjautuvasti ja oma-aloitteisesti.
+      </p>
+      <p>
+        Tapiolan kirjasto toimii myös Helmet-kirjastojen logistiikkakeskuksena, joten työssä korostuivat
+        järjestelmällisyys, huolellisuus ja yhteistyö.
+      </p>
+
+      <h3>Keskeisiä tehtäviä</h3>
+      <ul>
+        <li>Kirjojen hyllyttäminen ja järjestyksen ylläpito</li>
+        <li>Asiakaspalvelu ja opastus</li>
+        <li>Logistiikan tukitehtävät (lajittelu ja järjestely)</li>
+      </ul>
+    </section>
+    <section id="contact">
+      <h2>Yhteystiedot</h2>
+      <p><strong>Nimi</strong><br>Antti Heikkilä</p>
+      <p><strong>Puhelin</strong><br>040 060 1896</p>
+      <p><strong>Sähköposti</strong><br>anttiheh2007@outlook.com</p>
+      <p><strong>Osoite</strong><br>Taavinharju 10 A1<br>Espoo</p>
     </section>
   </main>
-
   <script>
     function showSection(id) {
-      document.querySelectorAll('section').forEach(section => {
-        section.classList.remove('active');
-      });
-      document.getElementById(id).classList.add('active');
+      const section = document.getElementById(id);
+      if (!section) return;
+      document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+      section.classList.add('active');
     }
-
-    function switchLanguage(lang) {
-      document.documentElement.lang = lang;
-
-      // käännä navigaatio
-      document.querySelectorAll('nav a').forEach(link => {
-        link.textContent = link.dataset[lang];
-      });
-
-      // käännä otsikot ja kappaleet osioissa
-      document.querySelectorAll('[data-fi][data-en]').forEach(el => {
-        el.textContent = el.dataset[lang];
-      });
-    });
-    }
-
-    // Näytä etusivu oletuksena
     showSection('home');
   </script>
-
   <footer>
     <p>© 2026 Antti Heikkilä</p>
-    <p>
-      📞 040 060 1896 · ✉️ anttihh2007@outlook.com · Espoo
-    </p>
+    <p>📞 040 060 1896 · ✉️ anttihh2007@outlook.com · Espoo</p>
   </footer>
-
 </body>
 </html>
