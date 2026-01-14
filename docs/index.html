@@ -25,8 +25,13 @@
     header {
       /* Banner-tausta GitHubista */
       background-image: url('https://raw.githubusercontent.com/antti-ship-it/site/main/docs/banner.png');
-      background-size: cover;
-      background-position: center;
+      background-size: cover; /* normaali, ennustettava skaalaus */
+      background-position: center 60%; /* siirretään kuvaa hieman alemmas desktopilla */
+      background-repeat: no-repeat; /* leikataan ylimenevä osa */
+
+      /* lukitaan bannerin korkeus */
+      min-height: 280px;
+      max-height: 280px;
 
       color: #1f3d2b; /* tumma vihreä */
       padding: 3rem 1.5rem 2.25rem; /* tilaa myös napeille */
@@ -36,6 +41,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
     }
 
     .header-profile {
@@ -153,8 +159,10 @@
       margin-bottom: 3rem;
       background: #ffffff;
       padding: 2rem 2rem 2.5rem;
-      border-left: 6px solid #2f5d3a; /* vihreä korostusreuna */
-      border-radius: 6px;
+
+      /* vihreä reunus koko sivun ympäri */
+      border: 3px solid #2f5d3a;
+      border-radius: 10px;
     }
     section.active { display: block; }
     h1, h2 {
@@ -171,11 +179,30 @@
     }
 
     footer {
-      background: #e8e1cf; /* sama hiekan sävy kuin header */
-      color: #1f3d2b;
+      background: #1f3d2b; /* tummempi vihreä alapalkki */
+      color: #f4f1ea;      /* vaalea teksti */
       text-align: center;
-      padding: 1.5rem;
-      border-top: 4px solid #2f5d3a; /* vihreä korostus */
+      padding: 2rem 1.5rem 1.75rem;
+      border-top: 4px solid #2f5d3a;
+    }
+
+    footer p {
+      margin-bottom: 0.8rem;
+      position: relative;
+      display: block; /* rivit päällekkäin */
+      padding-bottom: 0.4rem;
+    }
+
+    /* vaalea korostusviiva tekstin alle */
+    footer p::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%; /* korostus koko tekstin leveydelle */
+      height: 2px;
+      background: rgba(244, 241, 234, 0.6);
+      border-radius: 2px;
     }
 
     .button {
@@ -230,6 +257,20 @@
 
     @media (max-width: 600px) {
       nav { flex-direction: column; gap: 0.5rem; }
+      .header-profile {
+        flex-direction: column;
+        padding: 1.1rem 1.25rem;
+      }
+      .profile-pic { width: 88px; height: 88px; }
+      .header-profile h1 { white-space: normal; }
+
+      /* mobiilissa näytetään pienempi alue bannerista */
+      header {
+        min-height: 220px;
+        max-height: 220px;
+        background-position: center 20%;
+      }
+    }
       .header-profile {
         flex-direction: column;
         padding: 1.1rem 1.25rem;
