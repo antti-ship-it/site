@@ -5,19 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Antti Heikkilä</title>
   <meta name="description" content="A simple starter website" />
-  
+
   <!-- Otsikkofontti -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       line-height: 1.7;
       color: #222;
       background: #f4f1ea; /* vaalea hiekkatausta */
     }
+
     p { margin-bottom: 1.4rem; }
     ul { margin: 0 0 1.4rem 1.25rem; }
     li { margin-bottom: 0.4rem; }
@@ -25,18 +28,18 @@
     header {
       /* Banner-tausta GitHubista */
       background-image: url('https://raw.githubusercontent.com/antti-ship-it/site/main/docs/banner.png');
-      background-size: cover; /* normaali, ennustettava skaalaus */
-      background-position: center 60%; /* siirretään kuvaa hieman alemmas desktopilla */
-      background-repeat: no-repeat; /* leikataan ylimenevä osa */
+      background-size: cover;
+      background-position: center 60%;
+      background-repeat: no-repeat;
 
       /* lukitaan bannerin korkeus */
       min-height: 280px;
       max-height: 280px;
 
-      color: #1f3d2b; /* tumma vihreä */
-      padding: 3rem 1.5rem 2.25rem; /* tilaa myös napeille */
+      color: #1f3d2b;
+      padding: 3rem 1.5rem 2.25rem;
       text-align: center;
-      border-bottom: 4px solid #2f5d3a; /* vihreä korostus */
+      border-bottom: 4px solid #2f5d3a;
 
       display: flex;
       flex-direction: column;
@@ -47,7 +50,7 @@
     .header-profile {
       position: relative;
       display: inline-flex;
-      flex-direction: row; /* nimi vasemmalla, kuva oikealla */
+      flex-direction: row;
       flex-wrap: nowrap;
       align-items: center;
       justify-content: center;
@@ -60,8 +63,6 @@
       animation: headerFadeIn 700ms ease-out forwards;
     }
 
-    /* "Sumeus" vain tekstin/kuvan takana, mutta läpinäkyvämpi kuin aiemmin */
-    /* "Sumeus" vain nimen + kuvan takana (läpinäkyvämpi) */
     .header-profile::before {
       content: "";
       position: absolute;
@@ -80,9 +81,9 @@
     }
 
     .header-profile h1 {
-      margin: 0;                 /* estää päällekkäisyyden */
+      margin: 0;
       line-height: 1.1;
-      white-space: nowrap;        /* desktopilla ei rivity -> ei valu kuvan päälle */
+      white-space: nowrap;
       font-family: 'Libre Baskerville', serif;
       font-weight: 700;
       letter-spacing: 0.04em;
@@ -100,11 +101,9 @@
       border: 3px solid #2f5d3a;
       background: #fff;
 
-      /* fade-in */
       opacity: 0;
       animation: profileFadeIn 700ms ease-out forwards;
 
-      /* hover */
       transition: transform 200ms ease, box-shadow 200ms ease;
     }
 
@@ -116,6 +115,7 @@
     @keyframes profileFadeIn {
       to { opacity: 1; }
     }
+
     .nav-bar {
       display: inline-flex;
       justify-content: center;
@@ -125,13 +125,13 @@
       margin-top: 1.25rem;
       padding: 0;
 
-      /* ei omaa taustaa bannerissa */
       background: none;
       backdrop-filter: none;
       -webkit-backdrop-filter: none;
       border: none;
       box-shadow: none;
     }
+
     .nav-bar a {
       color: #1f3d2b;
       text-decoration: none;
@@ -146,6 +146,7 @@
       border: 1px solid rgba(31, 61, 43, 0.10);
       box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
     }
+
     .nav-bar a:hover {
       background: rgba(255, 255, 255, 0.70);
       transform: scale(1.05);
@@ -154,23 +155,25 @@
     }
 
     main { max-width: 900px; margin: 3rem auto; padding: 0 1rem; }
+
     section {
       display: none;
       margin-bottom: 3rem;
       background: #ffffff;
       padding: 2rem 2rem 2.5rem;
-
-      /* vihreä reunus koko sivun ympäri */
       border: 3px solid #2f5d3a;
       border-radius: 10px;
     }
+
     section.active { display: block; }
+
     h1, h2 {
       margin: 2.5rem 0 1.5rem;
-      color: #1f3d2b; /* vihreä otsikkoväri */
+      color: #1f3d2b;
       font-family: 'Libre Baskerville', serif;
       letter-spacing: 0.02em;
     }
+
     h3 {
       margin: 1.6rem 0 0.8rem;
       font-family: 'Libre Baskerville', serif;
@@ -178,9 +181,22 @@
       letter-spacing: 0.015em;
     }
 
+    /* Kuvat tekstiblokkien väliin */
+    .content-image {
+      width: 100%;
+      max-width: 760px;
+      height: auto;
+      display: block;
+      margin: 1.6rem auto 2rem;
+      border-radius: 14px;
+      border: 2px solid rgba(47, 93, 58, 0.28);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.10);
+      background: #fff;
+    }
+
     footer {
-      background: #1f3d2b; /* tummempi vihreä alapalkki */
-      color: #f4f1ea;      /* vaalea teksti */
+      background: #1f3d2b;
+      color: #f4f1ea;
       text-align: center;
       padding: 2rem 1.5rem 1.75rem;
       border-top: 4px solid #2f5d3a;
@@ -189,17 +205,16 @@
     footer p {
       margin-bottom: 0.8rem;
       position: relative;
-      display: block; /* rivit päällekkäin */
+      display: block;
       padding-bottom: 0.4rem;
     }
 
-    /* vaalea korostusviiva tekstin alle */
     footer p::after {
       content: "";
       position: absolute;
       left: 0;
       bottom: 0;
-      width: 100%; /* korostus koko tekstin leveydelle */
+      width: 100%;
       height: 2px;
       background: rgba(244, 241, 234, 0.6);
       border-radius: 2px;
@@ -208,7 +223,7 @@
     .button {
       display: inline-block;
       padding: 0.75rem 1.1rem;
-      background: #2f5d3a; /* teemavihreä */
+      background: #2f5d3a;
       color: #ffffff;
       border-radius: 10px;
       text-decoration: none;
@@ -218,13 +233,13 @@
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.10);
       transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
     }
+
     .button:hover {
       background: #264f31;
       transform: scale(1.04);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.14);
     }
 
-    /* Alalaidan napit erottuvaan "fade"-pohjaan */
     .cta-bar {
       margin-top: 1.75rem;
       padding: 1.25rem 1.25rem 0.25rem;
@@ -237,13 +252,14 @@
       );
     }
 
-    /* Scroll-reveal ("lentää sisään" alhaalta) */
+    /* Scroll-reveal */
     .reveal {
       opacity: 0;
       transform: translateY(28px);
       transition: opacity 650ms ease, transform 650ms ease;
       will-change: opacity, transform;
     }
+
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
@@ -256,29 +272,21 @@
     }
 
     @media (max-width: 600px) {
-      nav { flex-direction: column; gap: 0.5rem; }
       .header-profile {
         flex-direction: column;
         padding: 1.1rem 1.25rem;
       }
+
       .profile-pic { width: 88px; height: 88px; }
       .header-profile h1 { white-space: normal; }
 
-      /* mobiilissa näytetään pienempi alue bannerista */
       header {
         min-height: 220px;
         max-height: 220px;
         background-position: center 20%;
       }
     }
-      .header-profile {
-        flex-direction: column;
-        padding: 1.1rem 1.25rem;
-      }
-      .profile-pic { width: 88px; height: 88px; }
-      .header-profile h1 { white-space: normal; }
-    }
-</style>
+  </style>
 </head>
 <body>
   <header>
@@ -298,6 +306,7 @@
       <a onclick="showSection('contact')">Yhteystiedot</a>
     </nav>
   </header>
+
   <main>
     <section id="home">
       <h2>Tietoja minusta</h2>
@@ -310,29 +319,41 @@
         <li>Kiinnostus historiaan ja filosofiaan – YO: historia E, filosofia L, stipendin saaja</li>
         <li>Oma-aloitteinen, yhteistyökykyinen ja muita kannustava työskentelytapa</li>
       </ul>
-      <h3>Millainen työkaveri olisin?</h3>
+
+<h3>Millainen työkaveri olisin?</h3>
       <p>Työkaverina pyrin aina huomioimaan sen, että sama asia täytyy usein kertoa eri tavoin, jotta kaikki ymmärtävät sen mahdollisimman hyvin. Olen huomannut erityisesti partiossa ryhmänohjaajana toimiessani, että eri ihmisiä – ja etenkin lapsia – täytyy motivoida eri tavoin, jotta jokainen pääsee parhaalla mahdollisella tavalla mukaan tekemiseen.</p>
       <p>Minulle on tärkeää, että jokainen tuntee olonsa tervetulleeksi ja arvostetuksi. Pyrin vaikuttamaan tähän omalla toiminnallani kohtelemalla kaikkia yksilönä, kuuntelemalla ja huomioimalla erilaiset vahvuudet. Vastuu kannattaa jakaa ihmisten vahvuuksien mukaan: kukaan ei osaa kaikkea, mutta kaikkien panos on tärkeä. Autan mielelläni muita ja pyrin omalla esimerkilläni luomaan kannustavan ilmapiirin.</p>
+
       <h3>Miten ratkaisen ongelmia?</h3>
       <p>
         Ongelmanratkaisutaitoni näkyvät erityisesti pitkäkestoisissa ja kokonaisvaltaisissa projekteissa. Olen rakentanut
         itse stereovahvistimen ja kaiuttimet, joissa vastasin sekä puutyöistä - kaiutimen kotelo - että
         sähkötöistä, kuten piirilevyn kokoamisesta ja komponenttien asentamisesta.
       </p>
-      
-      <p>
+
+            <p>
         Lukiossa olen osallistunut vapaaehtoiseen robotiikkapajaan, jossa keskiössä ovat luova
         ongelmanratkaisukyky, yhteistyö ja toisten ohjaaminen. Ryhmässä on ollut myös heikosti suomea
         puhuvia opiskelijoita, mikä takia olen oppinut kommunikoimaan selkeästi ja varmistamaan, että
         kaikki ymmärtävät yhteiset tavoitteet ja tehtävät.
       </p>
+
+      <!-- KUVA C: GitHubista (image_c.jpg) -->
+      <img
+        class="content-image"
+        src="https://cdn.jsdelivr.net/gh/antti-ship-it/site@main/docs/image_c.jpg"
+        data-fallback="https://raw.githubusercontent.com/antti-ship-it/site/main/docs/image_c.jpg"
+        alt="Kuva C"
+        loading="lazy"
+      />
+
       <p>
         Minulla on vahva tausta matemaattisessa ajattelussa. Yläkoulussa olin matemaattispainotteisella
         luokalla, jossa keskityttiin erityisesti ongelmanratkaisutaitoihin ja luovaa ajatteluun sen sijaan,
         että opeteltaisiin pelkästään kaavamaisia ratkaisumalleja tai tehtävätyyppien tunnistamista.
         Tämä on kehittänyt kykyäni lähestyä uusia ja monimutkaisia ongelmia ennakkoluulottomasti.
       </p>
-      
+
       <h3>Omat kiinnostuksen kohteet</h3>
       <p>
         <strong>Tietotekniikka</strong> Olen kiinnostunut ohjelmoinnista ja teknologian mahdollisuuksista. Osaan Python-ohjelmoinnin
@@ -354,6 +375,7 @@
         <li><strong>Englanti</strong> – hyvä</li>
         <li><strong>Saksa</strong> – tyydyttävä</li>
       </ul>
+
       <div class="cta-bar">
         <a class="button" onclick="showSection('about')">Partiotoiminta</a>
         <a class="button" onclick="showSection('employer')">Työnantajalle</a>
@@ -361,6 +383,7 @@
         <a class="button" onclick="showSection('contact')">Yhteystiedot</a>
       </div>
     </section>
+
     <section id="about">
       <h2>Partiotoiminta</h2>
 
@@ -374,7 +397,15 @@
         Tehtävä vaatii pitkäjänteistä suunnittelua, kykyä ennakoida mahdollisia haasteita sekä
         yhteistyötä eri-ikäisten ja eri rooleissa toimivien ihmisten kanssa.
       </p>
-      <h2>Partiotoiminta</h2>
+
+      <!-- KUVA A: GitHubista (image_a.jpg) -->
+      <img
+        class="content-image"
+        src="https://cdn.jsdelivr.net/gh/antti-ship-it/site@main/docs/image_a.jpg"
+        data-fallback="https://raw.githubusercontent.com/antti-ship-it/site/main/docs/image_a.jpg"
+        alt="Kuva A"
+        loading="lazy"
+      />
 
       <p>
         Olen ollut partiossa mukana alakoulusta lähtien ja toimin nykyään ryhmänohjaajana.
@@ -382,12 +413,16 @@
         että jokainen tulee nähdyksi.
       </p>
 
-      <h3>Johtaminen ja ohjaus</h3>
-      <p>
-        Ryhmänjohtajana olen oppinut, että ohjeiden pitää olla selkeitä ja kannustavia.
-        Epäonnistumisten kohdalla paras tapa edetä on käydä asiat rauhassa läpi ja sopia, miten
-        seuraavalla kerralla onnistutaan paremmin.
-      </p>
+      
+
+      <!-- KUVA B: GitHubista (image_b.jpg) -->
+      <img
+        class="content-image"
+        src="https://cdn.jsdelivr.net/gh/antti-ship-it/site@main/docs/image_b.jpg"
+        data-fallback="https://raw.githubusercontent.com/antti-ship-it/site/main/docs/image_b.jpg"
+        alt="Kuva B"
+        loading="lazy"
+      />
 
       <h3>Tapahtumien järjestäminen</h3>
       <p>
@@ -406,6 +441,7 @@
         mielekkäänä ja turvallisena.
       </p>
     </section>
+
     <section id="employer">
       <h2>Työnantajalle</h2>
 
@@ -414,9 +450,8 @@
         lippukuntaretken johtamisesta. Tämä tarkoittaa kokonaisuuksien hallintaa, vastuun jakamista,
         aikataulutusta ja kykyä toimia luotettavasti myös paineen alla.
       </strong></p>
-      <h2>Työnantajalle</h2>
 
-      <p>
+<p>
         Alla kuvaan konkreettisesti, millaisissa tehtävissä ja toimintaympäristöissä osaamiseni voisi olla hyödyksi ja millä tavalla.
       </p>
 
@@ -452,19 +487,17 @@
         ohjelman suunnittelua, ohjeiden selkeyttämistä, ryhmän motivointia sekä toimimista
         rauhallisesti myös yllättävissä tilanteissa.
       </p>
-    <h3>Miksi minut kannattaa palkata?</h3>
+
+      <h3>Miksi minut kannattaa palkata?</h3>
       <p>
-        Tuon mukanani työyhteisöön vastuullisen ja käytännönläheisen työotteen. Olen tottunut
-        ottamaan vastuuta, oppimaan uutta nopeasti ja toimimaan erilaisten ihmisten kanssa.
-        Minulle on tärkeää, että työ tehdään huolellisesti ja että kokonaisuus toimii, ei vain
-        yksittäinen tehtävä.
-      </p>
-      <p>
-        Yhdistän tekemisessäni analyyttisen ajattelun, käytännön taidot ja ihmisten huomioimisen.
-        Tämä näkyy kykynä ratkaista ongelmia, kantaa vastuuta ja edistää yhteistä tekemistä myös
-        tilanteissa, joissa valmiita ratkaisuja ei ole.
+        Partiosta olen saanut vahvan pohjan tiimityöhön ja johtamiseen. 
+        Olen tottunut vastaamaan ryhmien turvallisuudesta ja motivoimaan muita myös haastavissa tilanteissa. 
+        Työntekijänä olen käytännönläheinen ja luotettava. Hahmotan nopeasti kokonaisuuksia ja omaksun uutta vaivatta. 
+        Vahvuuteni on kyky yhdistää analyyttinen ote hyviin vuorovaikutustaitoihin. 
+        Saan asioita aikaan ja pidän huolen siitä, että yhteistyö sujuu.
       </p>
     </section>
+
     <section id="work">
       <h2>Työkokemus</h2>
 
@@ -486,6 +519,7 @@
         <li>Logistiikan tukitehtävät (lajittelu ja järjestely)</li>
       </ul>
     </section>
+
     <section id="contact">
       <h2>Yhteystiedot</h2>
       <p><strong>Nimi</strong><br>Antti Heikkilä</p>
@@ -494,6 +528,7 @@
       <p><strong>Osoite</strong><br>Taavinharju 10 A1<br>Espoo</p>
     </section>
   </main>
+
   <script>
     let revealObserver = null;
 
@@ -516,13 +551,25 @@
     function setupReveals(container) {
       const observer = ensureRevealObserver();
 
-      // Valitaan tekstisisältöä ja "blokkeja"; nämä tulevat sisään kun scrollaat.
-      const targets = container.querySelectorAll('h2, h3, p, li, ul, div');
+      // Mukaan myös kuvat
+      const targets = container.querySelectorAll('h2, h3, p, li, ul, div, img');
       targets.forEach((el) => {
-        // älä animoitua navia tai headeria (ei pitäisi osua, mutta varmistetaan)
         if (el.closest('header')) return;
         if (!el.classList.contains('reveal')) el.classList.add('reveal');
         observer.observe(el);
+      });
+
+      // Jos kuvalinkki ei toimi, kokeillaan automaattisesti fallback-URL:ia
+      container.querySelectorAll('img[data-fallback]').forEach((img) => {
+        if (img.dataset.fallbackBound === '1') return;
+        img.dataset.fallbackBound = '1';
+        img.addEventListener('error', () => {
+          const fb = img.getAttribute('data-fallback');
+          if (!fb) return;
+          // estä looppi
+          img.removeAttribute('data-fallback');
+          img.src = fb;
+        });
       });
     }
 
@@ -533,16 +580,14 @@
       document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
       section.classList.add('active');
 
-      // Kun vaihdat osiota, käynnistetään scroll-reveal tämän osion sisällölle.
-      // (Observer "muistaa" jo näkyviksi tulleet elementit.)
       setupReveals(section);
 
-      // Varmistetaan, että aloitus ei jätä käyttäjää keskelle aiempaa scrollia.
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     showSection('home');
   </script>
+
   <footer>
     <p>© 2026 Antti Heikkilä</p>
     <p>📞 040 060 1896 · ✉️ anttihh2007@outlook.com · Espoo</p>
